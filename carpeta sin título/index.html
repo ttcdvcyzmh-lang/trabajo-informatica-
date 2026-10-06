@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-[#f8f9fa]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sucursal Virtual Personas - Demo de Diseño</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#2C2C2C',
+                            yellow: '#FDDA24',
+                            purple: '#7E57C2',
+                            orange: '#FF7043',
+                            blue: '#0288D1',
+                            cyanBg: '#DCF4F8',
+                            cyanBorder: '#A8E2EB'
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Exact input underline styling matching screenshot */
+        .input-line {
+            border: none;
+            border-bottom: 1.5px solid #000000;
+            background: transparent;
+            transition: border-color 0.2s ease;
+        }
+        .input-line:focus {
+            outline: none;
+            border-bottom-color: #000000;
+        }
+        
+        /* Smooth transitions for interactive elements */
+        .btn-capsule {
+            border-radius: 9999px;
+            transition: all 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body class="min-h-full font-sans text-slate-800 bg-[#f8f9fa] flex flex-col justify-between relative overflow-x-hidden selection:bg-amber-200">
+
+    <!-- Top Educational Banner Disclaimer -->
+    <div class="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800 z-50">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="font-bold text-white uppercase tracking-wider text-[11px]">DEMO VISUAL INTERACTIVA</span>
+                <span class="text-slate-400 hidden md:inline">| Simulación estática de maquetación con fines educativos.</span>
+            </div>
+            <span class="text-slate-400 text-[11px]">No se solicitan ni procesan datos reales.</span>
+        </div>
+    </div>
+
+    <!-- Header with logo matching reference layout -->
+    <header class="bg-white py-4 px-6 relative z-30">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <!-- Left spacer to center logo -->
+            <div class="w-24 hidden sm:block"></div>
+
+            <!-- Main Brand Logo Centered -->
+            <div class="flex items-center justify-center gap-2 mx-auto sm:mx-0">
+                <div class="flex items-center gap-2.5">
+                    <!-- Slanted lines logo icon -->
+                    <svg class="w-7 h-7 text-black" viewBox="0 0 32 32" fill="currentColor">
+                        <rect x="4" y="6" width="24" height="4" rx="1" transform="rotate(-15 16 8)"/>
+                        <rect x="4" y="14" width="24" height="4" rx="1" transform="rotate(-15 16 16)"/>
+                        <rect x="4" y="22" width="24" height="4" rx="1" transform="rotate(-15 16 24)"/>
+                    </svg>
+                    <span class="text-2xl font-bold tracking-tight text-black">
+                        Bancolombia
+                    </span>
+                </div>
+            </div>
+
+            <!-- Top Right Pill Tag: "Sucursal Virtual Personas" -->
+            <div class="hidden sm:flex items-center bg-[#2C2C2C] text-white px-3 py-1 rounded-md text-[11px] font-medium tracking-wide">
+                <span>Sucursal Virtual Personas</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Background SVG Ribbon Waves exact match to reference screenshot -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+        <svg class="absolute w-full h-full min-w-[1100px] opacity-95" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+            
+            <!-- LEFT WAVE: Yellow atop Orange flowing from middle-left down and back up -->
+            <!-- Orange ribbon base -->
+            <path d="M -180 480 C 50 360, 220 540, 520 510 C 720 490, 880 320, 1100 180" 
+                  stroke="#FF7043" stroke-width="32" stroke-linecap="round"/>
+            
+            <!-- Yellow ribbon overlay -->
+            <path d="M -180 450 C 50 330, 220 510, 520 480 C 720 460, 880 290, 1100 150" 
+                  stroke="#FDDA24" stroke-width="26" stroke-linecap="round"/>
+
+            <!-- Purple accent ribbon tip on middle-left -->
+            <path d="M 460 515 C 480 520, 500 525, 520 530" 
+                  stroke="#7E57C2" stroke-width="24" stroke-linecap="round"/>
+
+            <!-- RIGHT WAVE: Top-right purple ribbon and right-side yellow/orange swoosh -->
+            <!-- Top Right Purple Ribbon Curve -->
+            <path d="M 1250 140 C 1320 110, 1390 150, 1480 210" 
+                  stroke="#7E57C2" stroke-width="22" stroke-linecap="round"/>
+
+            <!-- Right Orange Ribbon flowing down -->
+            <path d="M 950 630 C 1150 480, 1320 280, 1490 120" 
+                  stroke="#FF7043" stroke-width="30" stroke-linecap="round"/>
+
+            <!-- Right Yellow Ribbon flowing down -->
+            <path d="M 960 600 C 1160 450, 1330 250, 1500 90" 
+                  stroke="#FDDA24" stroke-width="24" stroke-linecap="round"/>
+        </svg>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="relative z-10 flex-grow flex flex-col items-center justify-start pt-6 pb-16 px-4">
+        
+        <!-- Main Section Header Title -->
+        <h1 class="text-3xl sm:text-4xl font-light text-slate-900 tracking-tight text-center mb-7 font-sans">
+            Sucursal Virtual Personas
+        </h1>
+
+        <div class="w-full max-w-[430px] space-y-5">
+            
+            <!-- Notice Box: "Esto te interesa" matching screenshot -->
+            <div class="bg-[#dcf4f8] border border-[#a8e2eb] rounded-xl p-4 sm:p-5 text-slate-900 shadow-xs">
+                <div class="flex items-start gap-3.5">
+                    <!-- Lightbulb icon in circle -->
+                    <div class="w-8 h-8 rounded-full bg-[#b8e8f0] flex items-center justify-center shrink-0 mt-0.5">
+                        <i class="fa-regular fa-lightbulb text-slate-800 text-sm"></i>
+                    </div>
+                    <div class="space-y-1 text-xs sm:text-sm">
+                        <h2 class="font-bold text-slate-900 text-sm sm:text-base">Esto te interesa</h2>
+                        <p class="text-slate-800 leading-snug font-normal">
+                            Desde el 2 de octubre de 2026 actualizamos el reglamento de las cuentas de ahorro.
+                        </p>
+                        <div class="pt-1">
+                            <a href="#" onclick="showInfoAlert(event)" class="font-bold text-slate-900 underline inline-block">
+                                Conócelo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Authentication Card -->
+            <div class="bg-white rounded-2xl p-7 sm:p-9 shadow-md border border-slate-100/80 relative">
+                
+                <!-- Greeting Header -->
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-black tracking-tight">¡Hola!</h2>
+                    <p class="text-xs sm:text-sm text-slate-700 font-normal mt-2.5 leading-snug max-w-[270px] mx-auto">
+                        Ingresa los datos para gestionar tus productos y hacer transacciones.
+                    </p>
+                </div>
+
+                <!-- Form Fields -->
+                <form id="loginForm" onsubmit="handleDemoSubmit(event)" class="space-y-6">
+                    
+                    <!-- USERNAME INPUT FIELD -->
+                    <div class="space-y-1">
+                        <div class="relative flex items-center border-b border-black pb-2">
+                            <i class="fa-regular fa-user text-slate-900 text-lg mr-3 shrink-0"></i>
+                            <input type="text" id="usernameInput" required placeholder="Usuario"
+                                   oninput="validateForm()"
+                                   class="w-full bg-transparent text-black font-normal text-base placeholder:text-slate-500 focus:outline-none py-0.5">
+                        </div>
+                        <div class="pt-1">
+                            <a href="#" onclick="showModalInfo('Recuperación de Usuario', 'Para recuperar tu usuario ingresa tu número de documento en la sucursal virtual.')" 
+                               class="text-xs font-bold text-black underline inline-block">
+                                ¿Olvidaste tu usuario?
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PASSWORD / ATM PIN INPUT FIELD -->
+                    <div class="space-y-1 pt-2">
+                        <div class="relative flex items-center border-b border-slate-400 pb-2 focus-within:border-black transition-colors">
+                            <i class="fa-solid fa-lock text-slate-900 text-lg mr-3 shrink-0"></i>
+                            <input type="password" id="passwordInput" required placeholder="Clave del cajero"
+                                   maxlength="4" oninput="validateForm()"
+                                   class="w-full bg-transparent text-black font-normal text-base placeholder:text-slate-500 focus:outline-none py-0.5">
+                        </div>
+                        <div class="pt-1">
+                            <a href="#" onclick="showModalInfo('Desbloqueo de Clave', 'Sigue los pasos en pantalla para restablecer o desbloquear tu clave del cajero.')" 
+                               class="text-xs font-bold text-black underline inline-block">
+                                ¿Olvidaste o bloqueaste tu clave?
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- SUBMIT BUTTON & CREATE USER LINK -->
+                    <div class="pt-6 space-y-4">
+                        <button type="submit" id="submitBtn" disabled
+                                class="w-full py-3.5 px-6 btn-capsule font-bold text-sm sm:text-base bg-[#E0E0E0] text-[#8E8E8E] cursor-not-allowed">
+                            Iniciar sesión
+                        </button>
+
+                        <div class="text-center pt-1">
+                            <a href="#" onclick="showModalInfo('Crear Usuario Demo', 'Esta opción te permite registrar tu usuario por primera vez en la sucursal.')" 
+                               class="text-xs sm:text-sm font-bold text-black inline-block">
+                                Crear usuario
+                            </a>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="relative z-10 bg-white border-t border-slate-200/60 py-5 text-center text-xs text-slate-500">
+        <div class="max-w-6xl mx-auto px-4 space-y-1.5">
+            <p class="font-medium text-slate-600">
+                <i class="fa-solid fa-shield-halved text-emerald-600 mr-1"></i>
+                Sitio seguro de prueba de interfaz gráfica.
+            </p>
+            <p class="text-[11px] text-slate-400">
+                © 2026 Prototipo con fines educativos de diseño web y desarrollo de software.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Modal for Demo Interaction -->
+    <div id="demoModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-200 p-4">
+        <div class="bg-white max-w-md w-full rounded-2xl p-6 shadow-2xl border border-slate-100 transform scale-95 transition-transform duration-200" id="demoModalBox">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                <h3 id="modalTitle" class="font-bold text-slate-900 text-base">Notificación</h3>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-slate-700 text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="py-4 text-xs sm:text-sm text-slate-700 leading-relaxed" id="modalBody">
+                Mensaje de demostración.
+            </div>
+            <div class="pt-3 text-right">
+                <button onclick="closeModal()" class="bg-black hover:bg-slate-800 text-white font-bold text-xs py-2.5 px-5 rounded-full transition-colors">
+                    Entendido
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Form Validation & Button State Toggle
+        function validateForm() {
+            const userVal = document.getElementById('usernameInput').value.trim();
+            const passVal = document.getElementById('passwordInput').value.trim();
+            const btn = document.getElementById('submitBtn');
+
+            if (userVal.length >= 3 && passVal.length >= 4) {
+                btn.disabled = false;
+                btn.classList.remove('bg-[#E0E0E0]', 'text-[#8E8E8E]', 'cursor-not-allowed');
+                btn.classList.add('bg-black', 'hover:bg-slate-800', 'text-white', 'cursor-pointer', 'shadow-md');
+            } else {
+                btn.disabled = true;
+                btn.classList.add('bg-[#E0E0E0]', 'text-[#8E8E8E]', 'cursor-not-allowed');
+                btn.classList.remove('bg-black', 'hover:bg-slate-800', 'text-white', 'cursor-pointer', 'shadow-md');
+            }
+        }
+
+        // Form Submit Handler
+        function handleDemoSubmit(e) {
+            e.preventDefault();
+            const userVal = document.getElementById('usernameInput').value;
+            showModalInfo(
+                '¡Simulación de Ingreso Exitosa!',
+                `Has interactuado con el usuario ficticio: <strong>${userVal}</strong>.<br><br>Esta es una plantilla de diseño estético de interfaz.`
+            );
+        }
+
+        // Notice Box Banner Alert
+        function showInfoAlert(e) {
+            e.preventDefault();
+            showModalInfo(
+                'Reglamento de Cuentas',
+                'Has hecho clic en el enlace "Conócelo". En el sitio oficial, este botón abre el documento PDF con la actualización del reglamento de las cuentas de ahorro.'
+            );
+        }
+
+        // Modal Open / Close Handlers
+        function showModalInfo(title, body) {
+            document.getElementById('modalTitle').innerHTML = title;
+            document.getElementById('modalBody').innerHTML = body;
+            const modal = document.getElementById('demoModal');
+            const box = document.getElementById('demoModalBox');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                box.classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('demoModal');
+            const box = document.getElementById('demoModalBox');
+            modal.classList.add('opacity-0');
+            box.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 200);
+        }
+    </script>
+</body>
+</html>
